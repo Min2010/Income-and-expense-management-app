@@ -10,23 +10,23 @@ export interface Transaction {
 }
 
 export const INCOME_CATEGORIES = [
-  { label: 'Salary 💼', value: 'Salary' },
-  { label: 'Freelance 🎨', value: 'Freelance' },
-  { label: 'Gift 🎁', value: 'Gift' },
-  { label: 'Business 📈', value: 'Business' },
+  { label: 'เงินเดือน 💼', value: 'Salary' },
+  { label: 'งานเสริม 🎨', value: 'Freelance' },
+  { label: 'ของขวัญ 🎁', value: 'Gift' },
+  { label: 'ธุรกิจ 📈', value: 'Business' },
 ];
 
 export const EXPENSE_CATEGORIES = [
-  { label: 'Food 🍔', value: 'Food' },
-  { label: 'Travel 🚗', value: 'Travel' },
-  { label: 'Shopping 🛍️', value: 'Shopping' },
-  { label: 'Personal 💅', value: 'Personal' },
-  { label: 'Entertainment 🎬', value: 'Entertainment' },
+  { label: 'อาหาร 🍔', value: 'Food' },
+  { label: 'เดินทาง 🚗', value: 'Travel' },
+  { label: 'ช้อปปิ้ง 🛍️', value: 'Shopping' },
+  { label: 'ของใช้ส่วนตัว 💅', value: 'Personal' },
+  { label: 'ความบันเทิง 🎬', value: 'Entertainment' },
 ];
 
 export const MONTHS = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
+  'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+  'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'
 ];
 
 export const YEARS = [2024, 2025, 2026];

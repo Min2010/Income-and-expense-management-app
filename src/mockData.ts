@@ -1,5 +1,5 @@
 import { Transaction, INCOME_CATEGORIES, EXPENSE_CATEGORIES } from './types';
-import { format, startOfYear, endOfYear, eachDayOfInterval, addDays, isSameDay } from 'date-fns';
+import { format, startOfYear, endOfYear, eachDayOfInterval } from 'date-fns';
 
 export const generateMockData = (): Transaction[] => {
   const transactions: Transaction[] = [];

@@ -303,7 +303,7 @@ const App: React.FC = () => {
                       paddingAngle={5}
                       dataKey="value"
                     >
-                      {incomePieData.map((entry, index) => (
+                      {incomePieData.map((_, index) => (
                         <Cell key={`cell-${index}`} fill={PASTEL_COLORS[index % PASTEL_COLORS.length]} />
                       ))}
                     </Pie>
@@ -345,7 +345,7 @@ const App: React.FC = () => {
                       paddingAngle={5}
                       dataKey="value"
                     >
-                      {expensePieData.map((entry, index) => (
+                      {expensePieData.map((_, index) => (
                         <Cell key={`cell-${index}`} fill={PASTEL_COLORS[(index + 3) % PASTEL_COLORS.length]} />
                       ))}
                     </Pie>
@@ -384,7 +384,7 @@ const App: React.FC = () => {
           }`}>
             <div className="flex justify-between items-center mb-6">
               <h2 className={`text-2xl font-black ${isDarkMode ? 'bg-clip-text text-transparent bg-gradient-brand' : 'text-black'}`}>
-                New Transaction 📝
+                เพิ่มรายการใหม่ 📝
               </h2>
               <button onClick={() => setIsModalOpen(false)} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full transition-colors">
                 <X className={`w-6 h-6 ${isDarkMode ? 'text-white' : 'text-black'}`} />
@@ -403,7 +403,7 @@ const App: React.FC = () => {
                     formData.type === 'expense' ? 'bg-white dark:bg-slate-600 shadow-sm text-blue-500' : 'text-slate-400'
                   }`}
                 >
-                  Expense 💸
+                  รายจ่าย 💸
                 </button>
                 <button
                   type="button"
@@ -414,13 +414,13 @@ const App: React.FC = () => {
                     formData.type === 'income' ? 'bg-white dark:bg-slate-600 shadow-sm text-emerald-500' : 'text-slate-400'
                   }`}
                 >
-                  Income 💰
+                  รายรับ 💰
                 </button>
               </div>
 
               {/* Amount */}
               <div>
-                <label className={`block text-sm font-bold mb-1 ml-2 ${isDarkMode ? 'opacity-70' : 'text-black'}`}>Amount (฿)</label>
+                <label className={`block text-sm font-bold mb-1 ml-2 ${isDarkMode ? 'opacity-70' : 'text-black'}`}>จำนวนเงิน (฿)</label>
                 <input
                   autoFocus
                   type="number"
@@ -436,7 +436,7 @@ const App: React.FC = () => {
 
               {/* Category */}
               <div>
-                <label className={`block text-sm font-bold mb-1 ml-2 ${isDarkMode ? 'opacity-70' : 'text-black'}`}>Category</label>
+                <label className={`block text-sm font-bold mb-1 ml-2 ${isDarkMode ? 'opacity-70' : 'text-black'}`}>หมวดหมู่</label>
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
@@ -454,7 +454,7 @@ const App: React.FC = () => {
 
               {/* Date */}
               <div>
-                <label className={`block text-sm font-bold mb-1 ml-2 ${isDarkMode ? 'opacity-70' : 'text-black'}`}>Date</label>
+                <label className={`block text-sm font-bold mb-1 ml-2 ${isDarkMode ? 'opacity-70' : 'text-black'}`}>วันที่</label>
                 <input
                   type="date"
                   required
@@ -468,10 +468,10 @@ const App: React.FC = () => {
 
               {/* Note */}
               <div>
-                <label className={`block text-sm font-bold mb-1 ml-2 ${isDarkMode ? 'opacity-70' : 'text-black'}`}>Note (Optional)</label>
+                <label className={`block text-sm font-bold mb-1 ml-2 ${isDarkMode ? 'opacity-70' : 'text-black'}`}>บันทึกเพิ่มเติม (ไม่บังคับ)</label>
                 <input
                   type="text"
-                  placeholder="What was this for?"
+                  placeholder="บันทึกช่วยจำ..."
                   value={formData.note}
                   onChange={(e) => setFormData({ ...formData, note: e.target.value })}
                   className={`w-full px-5 py-3 rounded-2xl border-2 focus:outline-none transition-colors ${
@@ -487,8 +487,18 @@ const App: React.FC = () => {
                   isDarkMode ? 'text-white' : 'text-black'
                 }`}
               >
-                Save Transaction ✨
+                บันทึกรายการ ✨
               </button>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
+
             </form>
           </div>
         </div>
