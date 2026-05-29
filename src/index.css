@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-slate-800;
+  }
+}
+
+.recharts-default-tooltip {
+  @apply rounded-xl border-none shadow-lg !important;
+}
