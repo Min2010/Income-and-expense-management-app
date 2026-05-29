@@ -107,12 +107,12 @@ const App: React.FC = () => {
 
   const encouragement = useMemo(() => {
     const messages = [
-      "You're doing great! ✨",
-      "Keep shining! 🌟",
-      "Every penny counts! 🐷",
-      "Proud of your progress! 💖",
-      "Smart choices today! 🧠",
-      "You've got this! 🌈"
+      "เก่งมากเลย! ทำต่อไปนะ ✨",
+      "วันนี้คุณทำได้ดีมาก 🌟",
+      "ทุกบาทมีค่า ออมวันละนิดนะ 🐷",
+      "ภูมิใจในตัวคุณจัง 💖",
+      "วางแผนดี มีชัยไปกว่าครึ่ง 🧠",
+      "สู้ๆ นะ เป็นกำลังใจให้ 🌈"
     ];
     return messages[Math.floor(Math.random() * messages.length)];
   }, [selectedMonth]);
@@ -150,7 +150,7 @@ const App: React.FC = () => {
             className={`flex items-center gap-2 px-6 py-3 bg-gradient-brand font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform ${isDarkMode ? 'text-white' : 'text-black'}`}
           >
             <Plus className="w-5 h-5" />
-            Add Transaction
+            เพิ่มรายการ
           </button>
           
           <button 
@@ -166,7 +166,7 @@ const App: React.FC = () => {
         {/* Header */}
         <header className="text-center space-y-2">
           <h1 className={`text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-brand flex items-center justify-center gap-3`}>
-            My Expense Tracker 🐣💰
+            แอปจัดการรายรับ-รายจ่าย 🐣💰
           </h1>
           <p className={`font-medium italic ${isDarkMode ? 'text-slate-400' : 'text-black opacity-70'}`}>{encouragement}</p>
         </header>
@@ -216,7 +216,7 @@ const App: React.FC = () => {
               </div>
               <span className="text-2xl">💛</span>
             </div>
-            <p className={`text-sm font-bold ${isDarkMode ? 'text-slate-400' : 'text-black opacity-60'}`}>Total Income</p>
+            <p className={`text-sm font-bold ${isDarkMode ? 'text-slate-400' : 'text-black opacity-60'}`}>รายได้ทั้งหมด</p>
             <p className={`text-2xl font-black ${isDarkMode ? 'text-slate-100' : 'text-black'}`}>฿{stats.income.toLocaleString()}</p>
           </div>
 
@@ -229,7 +229,7 @@ const App: React.FC = () => {
               </div>
               <span className="text-2xl">🧾</span>
             </div>
-            <p className={`text-sm font-bold ${isDarkMode ? 'text-slate-400' : 'text-black opacity-60'}`}>Total Expense</p>
+            <p className={`text-sm font-bold ${isDarkMode ? 'text-slate-400' : 'text-black opacity-60'}`}>รายจ่ายทั้งหมด</p>
             <p className={`text-2xl font-black ${isDarkMode ? 'text-slate-100' : 'text-black'}`}>฿{stats.expense.toLocaleString()}</p>
           </div>
 
@@ -242,7 +242,7 @@ const App: React.FC = () => {
               </div>
               <span className="text-2xl">🌟</span>
             </div>
-            <p className={`text-sm font-bold ${isDarkMode ? 'text-slate-400' : 'text-black opacity-60'}`}>Net Total</p>
+            <p className={`text-sm font-bold ${isDarkMode ? 'text-slate-400' : 'text-black opacity-60'}`}>คงเหลือสุทธิ</p>
             <p className={`text-2xl font-black ${stats.total >= 0 ? (isDarkMode ? 'text-emerald-400' : 'text-emerald-600') : 'text-rose-500'}`}>
               ฿{stats.total.toLocaleString()}
             </p>
@@ -254,7 +254,7 @@ const App: React.FC = () => {
           isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-emerald-100'
         }`}>
           <h3 className={`text-xl font-bold mb-6 flex items-center gap-2 ${isDarkMode ? 'text-slate-100' : 'text-black'}`}>
-            📊 Daily Summary <span className={`text-sm font-normal ${isDarkMode ? 'text-slate-400' : 'text-black opacity-50'}`}>(Income vs Expense)</span>
+            📊 สรุปรายวัน <span className={`text-sm font-normal ${isDarkMode ? 'text-slate-400' : 'text-black opacity-50'}`}>(รายรับ vs รายจ่าย)</span>
           </h3>
           <div className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
@@ -274,8 +274,8 @@ const App: React.FC = () => {
                   cursor={{ fill: isDarkMode ? '#334155' : '#f9fafb' }}
                 />
                 <Legend verticalAlign="top" height={36} />
-                <Bar name="Income 💰" dataKey="income" fill="#10B981" radius={[4, 4, 0, 0]} />
-                <Bar name="Expense 💸" dataKey="expense" fill="#3B82F6" radius={[4, 4, 0, 0]} />
+                <Bar name="รายรับ 💰" dataKey="income" fill="#10B981" radius={[4, 4, 0, 0]} />
+                <Bar name="รายจ่าย 💸" dataKey="expense" fill="#3B82F6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -288,7 +288,7 @@ const App: React.FC = () => {
             isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-emerald-100'
           }`}>
             <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 ${isDarkMode ? 'text-slate-100' : 'text-black'}`}>
-              🥧 Income Breakdown <span className="text-lg">💼</span>
+              🥧 สัดส่วนรายได้ <span className="text-lg">💼</span>
             </h3>
             <div className="h-[250px] w-full">
               {incomePieData.length > 0 ? (
@@ -320,7 +320,7 @@ const App: React.FC = () => {
                   </PieChart>
                 </ResponsiveContainer>
               ) : (
-                <div className={`h-full flex items-center justify-center italic ${isDarkMode ? 'text-slate-400' : 'text-black opacity-40'}`}>No income data this month 🐣</div>
+                <div className={`h-full flex items-center justify-center italic ${isDarkMode ? 'text-slate-400' : 'text-black opacity-40'}`}>ไม่มีข้อมูลรายได้ในเดือนนี้ 🐣</div>
               )}
             </div>
           </div>
@@ -330,7 +330,7 @@ const App: React.FC = () => {
             isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-blue-100'
           }`}>
             <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 ${isDarkMode ? 'text-slate-100' : 'text-black'}`}>
-              🥧 Expense Breakdown <span className="text-lg">🛍️</span>
+              🥧 สัดส่วนรายจ่าย <span className="text-lg">🛍️</span>
             </h3>
             <div className="h-[250px] w-full">
               {expensePieData.length > 0 ? (
@@ -362,7 +362,7 @@ const App: React.FC = () => {
                   </PieChart>
                 </ResponsiveContainer>
               ) : (
-                <div className={`h-full flex items-center justify-center italic ${isDarkMode ? 'text-slate-400' : 'text-black opacity-40'}`}>No expense data this month 🐣</div>
+                <div className={`h-full flex items-center justify-center italic ${isDarkMode ? 'text-slate-400' : 'text-black opacity-40'}`}>ไม่มีข้อมูลรายจ่ายในเดือนนี้ 🐣</div>
               )}
             </div>
           </div>
@@ -371,7 +371,7 @@ const App: React.FC = () => {
         {/* Footer Quote */}
         <footer className="text-center py-8">
           <p className={`flex items-center justify-center gap-2 font-bold ${isDarkMode ? 'text-emerald-400' : 'text-black'}`}>
-            Made with <Heart className="w-4 h-4 fill-current text-rose-400" /> for your financial health!
+            สร้างด้วย <Heart className="w-4 h-4 fill-current text-rose-400" /> เพื่อสุขภาพทางการเงินที่ดีของคุณ!
           </p>
         </footer>
       </div>
@@ -489,16 +489,6 @@ const App: React.FC = () => {
               >
                 บันทึกรายการ ✨
               </button>
-            </form>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default App;
-
             </form>
           </div>
         </div>
