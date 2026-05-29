@@ -29,10 +29,24 @@ const App: React.FC = () => {
     note: ''
   });
   
-  // Load initial data
+  // Load initial data from LocalStorage or generate mock data if empty
   useEffect(() => {
-    setTransactions(generateMockData());
+    const savedData = localStorage.getItem('my_expense_tracker_data');
+    if (savedData) {
+      setTransactions(JSON.parse(savedData));
+    } else {
+      const initialMock = generateMockData();
+      setTransactions(initialMock);
+      localStorage.setItem('my_expense_tracker_data', JSON.stringify(initialMock));
+    }
   }, []);
+
+  // Save to LocalStorage whenever transactions change
+  useEffect(() => {
+    if (transactions.length > 0) {
+      localStorage.setItem('my_expense_tracker_data', JSON.stringify(transactions));
+    }
+  }, [transactions]);
 
   // Update body class for dark mode
   useEffect(() => {
